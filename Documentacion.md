@@ -28,7 +28,7 @@ Etiqueta style
  </head> 
 ```
 
-1.  Css externo: 
+2.  Css externo: 
 ###### Etiqueta <link>
 ```html
  <head> 
@@ -37,7 +37,7 @@ Etiqueta style
  </head> 
 ```
 
-1. CSS en línea: 
+3. CSS en línea: 
 ###### Atributo style 
 ```html
   <span style = “border:2px solid blue;”> Sasuke </span> 
