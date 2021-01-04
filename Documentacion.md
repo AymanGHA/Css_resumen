@@ -67,7 +67,7 @@ p{
 
 -------------
 #### LISTA DE SELECTORES Y EJEMPLOS 
-SELECTOR
+ETIQUETA
 ###### selecciona todos los divs 
 ```css
 div {
@@ -75,6 +75,53 @@ div {
 }
 
 ```
+ETIQUETA ETIQUETA
+###### Todos los span que son descendientes de un div
+```css
+div span{
+	color :red;
+}
+
+```
+ETIUETA > ETIQUETA
+###### Todos los span que son directamente descendientes de un div
+```css
+div > span {
+	color: red;
+}
+```
+ETIQUETA ~ ETIQUETA 
+###### Todos los p que son hermanos de p (hermanos que van despúes de la primera p ).
+```html
+  <p>NEGRO</p>
+  <p>ROJO</p>
+  <hr>
+  <h1>soy un título</h1>
+  <p>ROJO</p>
+```
+```css
+p ~ p{
+ color: red;
+}
+
+```
+ETIQUETA + ETIQUETA 
+###### Todos los p que van directamente despues de un p.
+```html
+  <p>NEGRO</p>
+  <p>ROJO</p>
+  <p>ROJO</p>
+  <hr>
+  <p>NEGRO</p>
+```
+```css
+p + p {
+  color:red;
+}
+```
+------------
+
+### SELECTORES DE ATRIBUTO 
 SELECTOR[ATRIBUTO]
 ###### divs con el atributo class
 ```css
@@ -85,36 +132,57 @@ div[class] {
 SELECTOR[ATRIBUTO="X"]
 ###### div donde el valor del atributo sea rojogrande
 ```css
-div[class="rojogrande"] {
+div[class="rojo"] {
  color: red;
 }
 ```
 
 ##### SELECTOR[ATRIBUTO^="X"]
 ###### divs donde el valor del atributo class comienza con rojo
+```html
+  <div class="boxfile">NO SELECCIONADO</div>
+  <div class="file-Size">ROJO</div>
+  <div class="fileInput">ROJO</div>
+```
 ```css
- div[class^="rojo"] {
+ div[class^="file"] {
  color: red;
 }
 ```
 ##### SELECTOR[ATRIBUTO$="X"] 
 ###### divs donde el valor del atributo class acaba en grande.
+```html
+<div class="box-grande">ROJO</div>
+<div class="boxgrande">ROJO</div>
+<div class="box-mediano">NO SELECCIONADO</div>
+```
+
 ```css
 div[class$="grande"] {
  width : 500px; // ancho del elemento a 500px
 }
 ```
-#### SELECTOR[ATRIBUTO*="X"]
+##### SELECTOR[ATRIBUTO*="X"]
 ######  divs donde el valor del atributo class contenga la palabra grande en cualquier sitio
+```html
+<div class="developer">ROJO</div>
+<div class="gamedeveloper">ROJO</div>
+<div class="debian">NO SELECCIONADO</div>
+```
 ```css
-div[class*="ojo"] {
+div[class*="dev"] {
  color: red;
 }
 ```
-#### SELECTOR[ATRIBUTO~="X"]
+##### SELECTOR[ATRIBUTO~="X"]
 ######  divs donde el valor del atributo class contenga la palabra grande
+```html
+<div class="numero-uno numero-dos">ROJO</div>
+<div class="numero-dos numero-tres">NO SELECCIONADO</div>
+```
+
 ```css
-div[class~="rojo grande"] {
+div[class~="numero-uno"] {
  color: red;
 }
 ```
@@ -124,4 +192,25 @@ SELECTOR[ATRIBUTO|="X"]
 div[class|="rojo"] {
  color: red;
 }
+
 ```
+
+------------
+
+
+SELECTOR[ATRIBUTO="X" **i** ]
+###### divs con el atributo lang = ES , y todas sus variaciones. (Es,es,sE)
+```html
+<div lang="EN">Hello</div>
+<div lang="es">Hola</div> <!--ESTOY EN ROJO-->
+<div lang="zh">你好</div>
+<div lang="ES">Hola</div> <!--ESTOY EN ROJO-->
+
+```
+```css
+div[lang="ES" i] {
+ color: red;
+}
+```
+
+------------
